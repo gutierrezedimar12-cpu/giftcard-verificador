@@ -1,0 +1,17 @@
+{
+  "GC001": {
+    "cliente": "Ganador 1",
+    "premio": "4 Suspensiones",
+    "estado": "Activa"
+  },
+  "GC002": {
+    "cliente": "Ganador 2",
+    "premio": "4 Suspensiones",
+    "estado": "Activa"
+  },
+  "GC003": {
+    "cliente": "Ganador 3",
+    "premio": "4 Suspensiones",
+    "estado": "Activa"
+  }
+}
