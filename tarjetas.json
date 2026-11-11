@@ -1,17 +1,17 @@
 {
   "GC001": {
     "cliente": "Ganador 1",
-    "premio": "4 Suspensiones",
+    "premio": "Balanceo de 4 cauchos y 1 Alineación de vehiculo",
     "estado": "Activa"
   },
   "GC002": {
     "cliente": "Ganador 2",
-    "premio": "4 Suspensiones",
+    "premio": "Balanceo de 4 cauchos",
     "estado": "Activa"
   },
   "GC003": {
     "cliente": "Ganador 3",
-    "premio": "4 Suspensiones",
+    "premio": "Balanceo de 4 cauchos",
     "estado": "Activa"
   }
 }
