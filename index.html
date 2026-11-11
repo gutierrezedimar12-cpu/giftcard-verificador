@@ -1,108 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Verificación Gift Card</title>
-
-<style>
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#111;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    color:white;
-}
-
-.card{
-    background:#1b1b1b;
-    width:90%;
-    max-width:420px;
-    border-radius:20px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 0 30px rgba(0,0,0,.4);
-}
-
-.ok{
-    color:#34c759;
-    font-size:55px;
-}
-
-.error{
-    color:#ff3b30;
-    font-size:55px;
-}
-
-h1{
-    margin:15px 0;
-}
-
-.info{
-    text-align:left;
-    margin-top:25px;
-}
-
-.info p{
-    margin:10px 0;
-    font-size:18px;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#ffcc00;
-}
-</style>
-
-</head>
-<body>
-
-<div id="app"></div>
-
 <script>
 
-const tarjetas = {
+async function verificar(){
 
-GC001:{
-cliente:"Ganador 1",
-premio:"4 Suspensiones",
-estado:"Activa"
-},
+const params = new URLSearchParams(window.location.search);
+const codigo = params.get("codigo");
 
-GC002:{
-cliente:"Ganador 2",
-premio:"4 Suspensiones",
-estado:"Activa"
-},
+const respuesta = await fetch("tarjetas.json");
+const tarjetas = await respuesta.json();
 
-GC003:{
-cliente:"Ganador 3",
-premio:"4 Suspensiones",
-estado:"Activa"
-}
-
-};
-
-const params=new URLSearchParams(window.location.search);
-const codigo=params.get("codigo");
-
-const app=document.getElementById("app");
+const app = document.getElementById("app");
 
 if(tarjetas[codigo]){
 
-const t=tarjetas[codigo];
+const t = tarjetas[codigo];
 
-app.innerHTML=`
+app.innerHTML = `
 
 <div class="card">
 
-<div class="logo">
-SPEEDMAX
-</div>
+<div class="logo">SPEEDMAX</div>
 
 <div class="ok">✔</div>
 
@@ -126,7 +42,7 @@ SPEEDMAX
 
 }else{
 
-app.innerHTML=`
+app.innerHTML = `
 
 <div class="card">
 
@@ -142,7 +58,8 @@ app.innerHTML=`
 
 }
 
-</script>
+}
 
-</body>
-</html>
+verificar();
+
+</script>
