@@ -1,135 +1,59 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Verificación Gift Card</title>
 
-<style>
-body{
-    margin:0;
-    font-family:Arial,Helvetica,sans-serif;
-    background:#111;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-    color:white;
-}
+<title>PINO CAUCHOS | Verificación de Gift Card</title>
 
-.card{
-    background:#1b1b1b;
-    width:90%;
-    max-width:420px;
-    border-radius:20px;
-    padding:30px;
-    text-align:center;
-    box-shadow:0 0 30px rgba(0,0,0,.4);
-}
-
-.ok{
-    color:#34c759;
-    font-size:55px;
-}
-
-.error{
-    color:#ff3b30;
-    font-size:55px;
-}
-
-h1{
-    margin:15px 0;
-}
-
-.info{
-    text-align:left;
-    margin-top:25px;
-}
-
-.info p{
-    margin:10px 0;
-    font-size:18px;
-}
-
-.logo{
-    font-size:28px;
-    font-weight:bold;
-    color:#ffcc00;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
-<div id="app"></div>
+<div class="container">
 
-<script>
+    <div class="card">
 
-async function verificar(){
+        <div class="header">
 
-const params = new URLSearchParams(window.location.search);
-const codigo = params.get("codigo");
+            <div class="logo">
+                PINO CAUCHOS
+            </div>
 
-const respuesta = await fetch("tarjetas.json");
-const tarjetas = await respuesta.json();
+            <div class="subtitle">
+                Sistema Oficial de Verificación de Gift Cards
+            </div>
 
-const app = document.getElementById("app");
+        </div>
 
-if(tarjetas[codigo]){
+        <div class="content" id="contenido">
 
-const t = tarjetas[codigo];
+            <div class="loading">
 
-app.innerHTML = `
+                <div class="spinner"></div>
 
-<div class="card">
+                <h2>Verificando Gift Card...</h2>
 
-<div class="logo">
-SPEEDMAX
-</div>
+                <p>Espere unos segundos.</p>
 
-<div class="ok">✔</div>
+            </div>
 
-<h1>Gift Card Auténtica</h1>
+        </div>
 
-<div class="info">
+        <div class="footer">
 
-<p><b>Código:</b> ${codigo}</p>
+            Vigencia del 21 de noviembre al 21 de diciembre de 2026
 
-<p><b>Ganador:</b> ${t.cliente}</p>
+        </div>
 
-<p><b>Premio:</b> ${t.premio}</p>
-
-<p><b>Estado:</b> ${t.estado}</p>
+    </div>
 
 </div>
 
-</div>
-
-`;
-
-}else{
-
-app.innerHTML = `
-
-<div class="card">
-
-<div class="error">✖</div>
-
-<h1>Gift Card no válida</h1>
-
-<p>El código consultado no existe.</p>
-
-</div>
-
-`;
-
-}
-
-}
-
-verificar();
-
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>
